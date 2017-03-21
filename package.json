@@ -1,0 +1,31 @@
+{
+  "name": "vtt2srt",
+  "version": "0.1.0",
+  "description": "",
+  "main": "./index.js",
+  "preferGlobal": "true",
+  "bin": {
+    "vtt2srt": "./index.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:yourGithubUserName/vtt2srt.git"
+  },
+  "keywords": [
+    "keyword1",
+    "keyword2"
+  ],
+  "author": "yourGithubUserName",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yourGithubUserName/vtt2srt/issues"
+  },
+  "homepage": "https://github.com/yourGithubUserName/vtt2srt",
+  "dependencies": {
+    "mz": "^2.6.0",
+    "os": "^0.1.1"
+  }
+}
