@@ -12,18 +12,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:yourGithubUserName/vtt2srt.git"
+    "url": "git@github.com:yuwancumian/vtt2srt.git"
   },
   "keywords": [
     "keyword1",
     "keyword2"
   ],
-  "author": "yourGithubUserName",
+  "author": "yuwancumian",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/yourGithubUserName/vtt2srt/issues"
+    "url": "https://github.com/yuwancumian/vtt2srt/issues"
   },
-  "homepage": "https://github.com/yourGithubUserName/vtt2srt",
+  "homepage": "https://github.com/yuwancumian/vtt2srt",
   "dependencies": {
     "mz": "^2.6.0",
     "os": "^0.1.1"
