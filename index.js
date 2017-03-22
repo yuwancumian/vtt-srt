@@ -4,41 +4,21 @@ var os = require('os')
 var fs = require('mz/fs')
 var exec = require('mz/child_process').exec
 
+function isVtt(file){
+  return file.split('.').pop() === 'vtt' 
+}
 
-exec('sed -i ".bak" "1d" *.vtt')
-console.log('start')
-fs.readdir('./').then(function(data){
-  var len = data.length
-  var arr = []
-  for (var i = 0; i< len; i++){
-    var filename = data[i].split('.').pop()
-    if (filename === 'vtt'){
-      arr.push(data[i]) 
-    }
-  }
-  return(arr)
-}).then(function(vttArray){
-  console.log(vttArray)
-  var len = vttArray.length
-  for (let j = 0; j< len; j++){
-    (function(){
-      var filename = vttArray[j].split('.')[0] + '.srt'
-      console.log('filename:' + filename)
-      fs.readFile(vttArray[j]).then(function(data){
-        return data
-      }).then(function(fileContent){
+fs.readdir('./')
+  .then(data => data.filter(isVtt))
+  .then(arr => arr.map( file => {
+    fs.readFile(file, 'utf-8')
+    .then(content => content)
+    .then(content => {
+      var filename = file.substr(0,file.length -3 ) + 'srt'
+      fs.writeFile(filename, content)
+    })
+  }))
+  .then(()=> exec('rm *.vtt'))
+  .then(()=>console.log('Done'))
+  .catch(err=>console.log(err))
 
-        console.log('filecontent' +fileContent)
-        fs.writeFile(filename, fileContent).then(function(){
-
-        }) 
-      }).then(function(){
-        if (j == len-1){
-          exec('rm *.vtt')
-          exec('rm *.bak')
-          console.log('Done!')
-        }
-      })
-    })()
-  }
-})
