@@ -5,23 +5,8 @@ var fs = require('mz/fs')
 var exec = require('mz/child_process').exec
 
 
-// fs.readdir('./').then(function(data){
-//   var len = data.length
-//   var arr = []
-//   for (var i = 0; i< len; i++){
-//     var filename = data[i].split('.').pop()
-//     if (filename === 'vtt'){
-//       arr.push(data[i]) 
-//     }
-//   }
-//   return arr
-// }).then(function(data){
-//   exec('sed -i ".bak" "1d" *.vtt ')
-//   exec('rm *.bak')
-// })
-
-exec('sed -i ".bak" "1d" *.vtt ')
-exec('rm *.bak')
+exec('sed -i ".bak" "1d" *.vtt')
+console.log('start')
 fs.readdir('./').then(function(data){
   var len = data.length
   var arr = []
@@ -50,6 +35,7 @@ fs.readdir('./').then(function(data){
       }).then(function(){
         if (j == len-1){
           exec('rm *.vtt')
+          exec('rm *.bak')
           console.log('Done!')
         }
       })
