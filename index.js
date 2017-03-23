@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 
-var os = require('os')
 var fs = require('mz/fs')
 var exec = require('mz/child_process').exec
 
